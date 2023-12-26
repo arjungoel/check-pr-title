@@ -1,7 +1,6 @@
 name: Check PR title
 
 on:
-  push:
   pull_request:
    types: [opened, synchronize]
 
