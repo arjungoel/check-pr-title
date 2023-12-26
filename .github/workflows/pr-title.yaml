@@ -1,14 +1,17 @@
 name: Check PR title
 
 on:
-  push:
   pull_request:
    types: [opened, synchronize]
 
 jobs:
   print_title_of_pr:
-    runs-on: ubuntu-latest
-    
+    runs-on: windows-latest
+
     steps:
     - name : Print Title of PR
-      run: echo The Title of your PR is ${{ github.event.pull_request.title }}
+      shell: powershell
+      env:
+        TITLE: ${{ github.event.pull_request.title }}
+      run: |
+        Write-Host "The Title of your PR is ${{ github.event.pull_request.title }}"
